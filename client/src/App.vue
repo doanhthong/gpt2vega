@@ -1,4 +1,5 @@
 <template>
+  <h1 class="text-4xl font-bold text-blue-500">GPT2VegaChart!</h1>
   <MainComponent />
 </template>
 
