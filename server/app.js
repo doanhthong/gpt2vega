@@ -46,28 +46,29 @@ app.post('/api/generate-chart', async (req, res) => {
 
 async function generateVegaLiteChartData(prompt) {
     try {
-        //   // Call GPT-3 API with the provided prompt
-        // const gptResponse = await openaiClient.createChatCompletion({
-        //     model: "gpt-3.5-turbo",
-        //     messages: [{role: "user", content: `Generate a VegaLite chart configuration for the following prompt: ${prompt}`}],
-        //     // messages: [{role: "user", content: "Hello world"}],
-        //     max_tokens: 100,
-        //     n: 1,
-        //     stop: null,
-        //     temperature: 0.5,
-        // });
+          // Call GPT-3 API with the provided prompt
+        const gptResponse = await openaiClient.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [{role: "user", content: `Generate a VegaLite chart configuration for the following prompt: ${prompt}`}],
+            // messages: [{role: "user", content: "Hello world"}],
+            max_tokens: 1000,
+            n: 1,
+            stop: null,
+            temperature: 1.0,
+            top_p: 1.0
+        });
 
 
-        // // Extract the chart configuration from the GPT-3 response
-        // const chartConfig = extractVegaLiteConfig(gptResponse.data.choices[0].message.content.trim());
+        // Extract the chart configuration from the GPT-3 response
+        const chartConfig = extractVegaLiteConfig(gptResponse.data.choices[0].message.content.trim());
 
-        // console.log(gptResponse.data.choices[0].message);
+        console.log(gptResponse.data.choices[0].message);
 
 
-        // Test Data
-        const gptResponse = "Here's a VegaLite chart configuration for the prompt:\n\n```\n{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v5.json\",\n  \"data\": {\"values\": [\n    {\"gender\": \"female\", \"count\": 50},\n    {\"gender\": \"male\", \"count\": 100}\n  ]},\n  \"mark\": \"arc\",\n  \"encoding\": {\n    \"theta\": {\"field\": \"count\", \"type\": \"quantitative\", \"stack\": true},\n    \"color\": {\"field\": \"gender\", \"type\": \"nominal\", \"scale\": {\"range\": [\"#FFB6C1\", \"#FF6347\"]}},\n    \"tooltip\": [{\"field\": \"gender\", \"type\": \"nominal\"}, {\"field\": \"count\", \"type\": \"quantitative\"}]\n  }\n}\n```\n\nThis configuration sets the data to the provided gender and count values, and creates a pie chart with two arcs–one for female and one for male, as specified in the data. The `theta` encoding is used to determine the size of the arcs based on count, using the `stack` option to ensure they add up to 360 degrees. The `color` encoding sets female to `#FFB6C1` (a light pink color) and male to `#FF6347` (a darker red color), as per the request to use warm colors. Finally, `tooltip` is used to display the gender and count for each arc when the user hovers over it";
+        // // Test Data
+        // const gptResponse = "Here's a VegaLite chart configuration for the prompt:\n\n```\n{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v5.json\",\n  \"data\": {\"values\": [\n    {\"gender\": \"female\", \"count\": 50},\n    {\"gender\": \"male\", \"count\": 100}\n  ]},\n  \"mark\": \"arc\",\n  \"encoding\": {\n    \"theta\": {\"field\": \"count\", \"type\": \"quantitative\", \"stack\": true},\n    \"color\": {\"field\": \"gender\", \"type\": \"nominal\", \"scale\": {\"range\": [\"#FFB6C1\", \"#FF6347\"]}},\n    \"tooltip\": [{\"field\": \"gender\", \"type\": \"nominal\"}, {\"field\": \"count\", \"type\": \"quantitative\"}]\n  }\n}\n```\n\nThis configuration sets the data to the provided gender and count values, and creates a pie chart with two arcs–one for female and one for male, as specified in the data. The `theta` encoding is used to determine the size of the arcs based on count, using the `stack` option to ensure they add up to 360 degrees. The `color` encoding sets female to `#FFB6C1` (a light pink color) and male to `#FF6347` (a darker red color), as per the request to use warm colors. Finally, `tooltip` is used to display the gender and count for each arc when the user hovers over it";
 
-        const chartConfig = extractVegaLiteConfig(gptResponse.trim());
+        // const chartConfig = extractVegaLiteConfig(gptResponse.trim());
 
 
         // Parse the chart configuration as JSON

@@ -1,9 +1,10 @@
 <template>
     <div>
     <h1 class="text-4xl font-bold text-blue-500 mb-8 ">GPT2Vega</h1>
-        <div class="bg-white shadow-md rounded rounded-lg p-6 mx-auto container mb-20 border border-gray-100">
+        <div class="bg-white shadow-md rounded rounded-lg p-6 mx-auto my-container mb-20 border border-gray-100">
             <div id="appmain">
                 <LeftPanel  @generateChart="generateChart" />
+               
                 <div v-if="isLoading" class="loading-indicator text-left flex items-center ml-8">
                     <svg
                         class="animate-spin h-5 w-5 mr-3 text-blue-500"
@@ -44,7 +45,7 @@
     transform: rotate(360deg);
   }
 }
-.container {
+.my-container {
     max-width: 1000px;
 }
 #appmain {
