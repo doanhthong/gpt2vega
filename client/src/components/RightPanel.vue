@@ -1,7 +1,10 @@
 <template>
     <div class="right-panel">
-      <p>Right Panel: </p>
-      <div ref="chartContainer"></div>
+      <hr class="mx-8 my-2"/>
+      <div class="p-8 mx-auto w-full">
+        <h2 class="text-2xl font-bold mb-6 text-gray-700 text-left">Chart</h2>
+        <div ref="chartContainer"></div>
+      </div>
     </div>
   </template>
   

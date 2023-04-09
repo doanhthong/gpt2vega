@@ -1,12 +1,56 @@
 <template>
-    <div id="appmain" class="h-screen flex">
-        <LeftPanel class="flex-1"  @generateChart="generateChart" />
-        <!-- <div v-if="isLoading" class="loading-indicator">
-            Loading...
-        </div> -->
-        <RightPanel class="flex-1"  :chartData="chartData" />
+    <div>
+    <h1 class="text-4xl font-bold text-blue-500 mb-8 ">GPT2Vega</h1>
+        <div class="bg-white shadow-md rounded rounded-lg p-6 mx-auto container mb-20 border border-gray-100">
+            <div id="appmain">
+                <LeftPanel  @generateChart="generateChart" />
+                <div v-if="isLoading" class="loading-indicator text-left flex items-center ml-8">
+                    <svg
+                        class="animate-spin h-5 w-5 mr-3 text-blue-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                    >
+                    <circle
+                        class="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="4"
+                    ></circle>
+                    <path
+                        class="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 1.962.421 3.8 1.176 5.291l2.824-1.145z"
+                    ></path>
+                    </svg>
+                    Loading...
+                </div>
+                <RightPanel  :chartData="chartData" />
+                
+
+            </div>
+        </div>
     </div>
 </template>
+
+<style lang="scss">
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.container {
+    max-width: 1000px;
+}
+#appmain {
+    min-height: 600px;
+}
+</style>
   
 <script>
 import LeftPanel from './LeftPanel.vue';

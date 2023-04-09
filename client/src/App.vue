@@ -1,7 +1,5 @@
 <template>
-  <h1 class="text-4xl font-bold text-blue-500">GPT2VegaChart!</h1>
   <MainComponent />
-  <h1 class="text-3xl font-bold underline">Thoughts and Posts</h1>
 </template>
 
 <script>
