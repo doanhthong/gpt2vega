@@ -8,7 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "autoprefixer": "^10",
     "core-js": "^3.8.3",
+    "postcss": "^8",
+    "tailwindcss": "^3",
     "vega": "^5.24.0",
     "vega-embed": "^6.21.3",
     "vega-lite": "^5.6.1",
@@ -27,7 +30,8 @@
     "postcss": "^8.4.21",
     "sass": "^1.61.0",
     "sass-loader": "^13.2.2",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.3.1",
+    "vue-cli-plugin-tailwind": "~3.0.0"
   },
   "eslintConfig": {
     "root": true,
