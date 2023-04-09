@@ -5,8 +5,7 @@ Chang OpenAI API Key
 
 ![](docs/demo2.png)
 
-<video width="320" height="240" controls>
-  <source src="docs/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+
+https://user-images.githubusercontent.com/8786758/230772856-5e4d5248-0cc0-4d8f-8fa6-c31f087c93d9.mp4
 
