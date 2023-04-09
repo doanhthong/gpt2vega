@@ -1,10 +1,10 @@
 <template>
-    <div id="app">
-        <LeftPanel @generateChart="generateChart" />
-        <div v-if="isLoading" class="loading-indicator">
+    <div id="appmain" class="h-screen flex">
+        <LeftPanel class="flex-1"  @generateChart="generateChart" />
+        <!-- <div v-if="isLoading" class="loading-indicator">
             Loading...
-        </div>
-        <RightPanel :chartData="chartData" />
+        </div> -->
+        <RightPanel class="flex-1"  :chartData="chartData" />
     </div>
 </template>
   
@@ -13,7 +13,7 @@ import LeftPanel from './LeftPanel.vue';
 import RightPanel from './RightPanel.vue';
 
 export default {
-    name: 'App',
+    name: 'AppMain',
     components: { LeftPanel, RightPanel },
     data() {
         return {
