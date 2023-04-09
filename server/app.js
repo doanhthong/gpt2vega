@@ -58,6 +58,7 @@ async function generateVegaLiteChartData(prompt) {
             top_p: 1.0
         });
 
+        console.log("GPT-3 response:", gptResponse.data.choices[0].message.content.trim());
 
         // Extract the chart configuration from the GPT-3 response
         const chartConfig = extractVegaLiteConfig(gptResponse.data.choices[0].message.content.trim());
@@ -91,15 +92,30 @@ async function generateVegaLiteChartData(prompt) {
 }
 
 function extractVegaLiteConfig(responseText) {
+  try {
+    // First, try to extract the configuration from triple backticks
     const regex = /```([\s\S]*?)```/g;
     const match = regex.exec(responseText);
-  
+
     if (match && match[1]) {
-      return match[1].trim();
-    } else {
-      throw new Error("VegaLite configuration not found in the response");
+      const config = match[1].trim();
+      // Check if the extracted content is a valid JSON object
+      JSON.parse(config);
+      return config;
     }
+  } catch (error) {
+    // If extraction from triple backticks failed, proceed to the next step
   }
+
+  // If the responseText is not wrapped in triple backticks,
+  // check if it's a valid JSON object
+  try {
+    JSON.parse(responseText);
+    return responseText;
+  } catch (error) {
+    throw new Error("VegaLite configuration not found in the response");
+  }
+}
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
