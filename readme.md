@@ -7,7 +7,9 @@ Chang OpenAI API Key
 
 
 
-https://user-images.githubusercontent.com/8786758/230772856-5e4d5248-0cc0-4d8f-8fa6-c31f087c93d9.mp4
+
+https://user-images.githubusercontent.com/8786758/235438745-a2bd2c51-7121-4f4a-b94c-50b04ba56858.mp4
+
 
 
 # Install
